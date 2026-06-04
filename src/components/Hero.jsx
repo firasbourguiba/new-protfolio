@@ -10,9 +10,14 @@ export default function Hero({ lang, role, setRole }) {
     <header className="hero wrap" id="top">
       <div className="hero-grid">
         <div>
-          <div className="avail">
-            <span className="pulse" />
-            {C.meta.available[lang]}
+          <div className="hero-identity">
+            <div className="hero-avatar">
+              <img src="/photo.jpg" alt={C.meta.name} />
+            </div>
+            <div className="avail">
+              <span className="pulse" />
+              {C.meta.available[lang]}
+            </div>
           </div>
           <h1>
             <span className="name">{C.meta.name}</span>
