@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 function observeReveal(el, cb) {
   if (!el) return () => {};
   let done = false;
+  let fb;
   const guard = () => setTimeout(() => {
     if (el && parseFloat(getComputedStyle(el).opacity) < 0.05) {
       el.style.transition = 'none';
@@ -25,7 +26,7 @@ function observeReveal(el, cb) {
   obs.observe(el);
   const r = el.getBoundingClientRect();
   if (r.top < (window.innerHeight || 800) * 0.96) finish();
-  const fb = setTimeout(finish, 2600);
+  fb = setTimeout(finish, 2600);
   return () => { obs.disconnect(); clearTimeout(fb); };
 }
 
